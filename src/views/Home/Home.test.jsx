@@ -1,3 +1,5 @@
+import { render, screen } from '@testing-library/react'
+import Profile from '../../components/Profile/Profile'
 
 const user = {
   id: 1,
@@ -11,5 +13,9 @@ const user = {
 }
 
 test('Should render the user profile', () => {
-
+  render(<Profile user={user} />)
+  // screen.debug()
+  screen.getByText('Vonta')
+  const aria = screen.getByLabelText('motto')
+  expect(aria).toEqual('Res ')
 })
